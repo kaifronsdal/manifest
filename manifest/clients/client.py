@@ -323,6 +323,9 @@ class Client(ABC):
                 ArrayModelChoice(**choice) for choice in response["choices"]
             ]
         else:
+            # print(response["choices"][0])
+            # print(response["choices"][0].keys())
+            # print({k: type(v[0]) for k, v in response["choices"][0].items() if isinstance(v, list)})
             choices = [LMModelChoice(**choice) for choice in response["choices"]]
         return ModelChoices(choices=choices)
 
